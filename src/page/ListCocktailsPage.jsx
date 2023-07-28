@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../component/Header";
+import { Link } from "react-router-dom";
 
 const ListCocktailsPage = () => {
   const [cocktails, setCocktails] = useState([]);
@@ -27,6 +28,8 @@ const ListCocktailsPage = () => {
         {cocktails.map((cocktail) => (
           <div key={cocktail.idDrink}>
             <p>{cocktail.strDrink}</p>
+            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+            <Link to={"/cocktails/show/" + cocktail.idDrink}>Voir le cocktail</Link>
           </div>
         ))}
       </div>
