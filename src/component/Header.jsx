@@ -1,8 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const search = event.target.search.value;
+
+    navigate(`/search-results?search=${search}`);
+  };
+
   return (
-    <header>
+    <header className="header">
       <h2>Mon site de cocktails</h2>
       <nav>
         <ul>
@@ -17,6 +27,10 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="search" placeholder="Rechercher un cocktail" />
+        <button type="submit">Rechercher</button>
+      </form>
     </header>
   );
 };
