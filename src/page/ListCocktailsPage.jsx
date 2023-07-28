@@ -29,6 +29,11 @@ const ListCocktailsPage = () => {
           <div key={cocktail.idDrink}>
             <p>{cocktail.strDrink}</p>
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+
+            <Link to={"/cocktails/by-category/" + cocktail.strCategory}>
+              <p>Categorie : {cocktail.strCategory}</p>
+            </Link>
+
             <Link to={"/cocktails/show/" + cocktail.idDrink}>Voir le cocktail</Link>
           </div>
         ))}
