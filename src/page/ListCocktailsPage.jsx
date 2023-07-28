@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import Header from "../component/Header";
 
-const ListCocktails = () => {
+const ListCocktailsPage = () => {
   const [cocktails, setCocktails] = useState([]);
 
   const fetchCocktails = async () => {
@@ -15,18 +16,22 @@ const ListCocktails = () => {
   }, []);
 
   return (
-    <div>
-      <h1>List of Cocktails</h1>
+    <>
+      <Header />
 
-      {cocktails.length === 0 && <p>Loading...</p>}
+      <div>
+        <h1>List of Cocktails</h1>
 
-      {cocktails.map((cocktail) => (
-        <div key={cocktail.idDrink}>
-          <p>{cocktail.strDrink}</p>
-        </div>
-      ))}
-    </div>
+        {cocktails.length === 0 && <p>Loading...</p>}
+
+        {cocktails.map((cocktail) => (
+          <div key={cocktail.idDrink}>
+            <p>{cocktail.strDrink}</p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
-export default ListCocktails;
+export default ListCocktailsPage;
